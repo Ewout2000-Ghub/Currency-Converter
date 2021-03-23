@@ -63,7 +63,7 @@ public class HoofdpaginaController {
             }
             else if (fromComboBox.getValue().equals("Japanese Yen (JPY)") && toComboBox.getValue().equals("Euro (EUR)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 0.0078;
-                resultTextField.setText(String.format("%.2f", result));
+                resultTextField.setText(String.format("%.4f", result));
             }
             else if (fromComboBox.getValue().equals("Euro (EUR)") && toComboBox.getValue().equals("Japanese Yen (JPY)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 128.9900;
@@ -76,6 +76,11 @@ public class HoofdpaginaController {
             else if (fromComboBox.getValue().equals("Euro (EUR)") && toComboBox.getValue().equals("Canadian Dollar (CAD)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 1.4938;
                 resultTextField.setText(String.format("%.2f", result));
+            }
+            else if (fromComboBox.getValue().equals("Euro (EUR)") && toComboBox.getValue().equals("Euro (EUR)")) {
+                result = Double.parseDouble(convertAmountTextField.getText()) * 1;
+                resultTextField.setText(String.valueOf(result));
+                errorMessage.setText("Twee dezelfde valuta kunnen niet met elkaar vergeleken worden");
             }
             // US Dollar
             if (fromComboBox.getValue().equals("Great British Pound (GBP)") && toComboBox.getValue().equals("US Dollar (USD)")) {
@@ -96,7 +101,7 @@ public class HoofdpaginaController {
             }
             else if (fromComboBox.getValue().equals("Japanese Yen (JPY)") && toComboBox.getValue().equals("US Dollar (USD)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 0.0092;
-                resultTextField.setText(String.format("%.2f", result));
+                resultTextField.setText(String.format("%.4f", result));
             }
             else if (fromComboBox.getValue().equals("US Dollar (USD)") && toComboBox.getValue().equals("Japanese Yen (JPY)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 108.5500;
@@ -110,6 +115,11 @@ public class HoofdpaginaController {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 1.2571;
                 resultTextField.setText(String.format("%.2f", result));
             }
+            else if (fromComboBox.getValue().equals("US Dollar (USD)") && toComboBox.getValue().equals("US Dollar (USD)")) {
+                result = Double.parseDouble(convertAmountTextField.getText()) * 1;
+                resultTextField.setText(String.valueOf(result));
+                errorMessage.setText("Twee dezelfde valuta kunnen niet met elkaar vergeleken worden");
+            }
             // Pound Sterling
             if (fromComboBox.getValue().equals("Swiss Franc (CHF)") && toComboBox.getValue().equals("Great British Pound (GBP)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 0.7789;
@@ -121,7 +131,7 @@ public class HoofdpaginaController {
             }
             else if (fromComboBox.getValue().equals("Japanese Yen (JPY)") && toComboBox.getValue().equals("Great British Pound (GBP)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 0.0067;
-                resultTextField.setText(String.format("%.2f", result));
+                resultTextField.setText(String.format("%.4f", result));
             }
             else if (fromComboBox.getValue().equals("Great British Pound (GBP)") && toComboBox.getValue().equals("Japanese Yen (JPY)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 149.6438;
@@ -135,6 +145,11 @@ public class HoofdpaginaController {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 1.7330;
                 resultTextField.setText(String.format("%.2f", result));
             }
+            else if (fromComboBox.getValue().equals("Great British Pound (GBP)") && toComboBox.getValue().equals("Great British Pound (GBP)")) {
+                result = Double.parseDouble(convertAmountTextField.getText()) * 1;
+                resultTextField.setText(String.valueOf(result));
+                errorMessage.setText("Twee dezelfde valuta kunnen niet met elkaar vergeleken worden");
+            }
             // Swiss franc
             if (fromComboBox.getValue().equals("Canadian Dollar (CAD)") && toComboBox.getValue().equals("Swiss Franc (CHF)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 0.7408;
@@ -146,11 +161,16 @@ public class HoofdpaginaController {
             }
             else if (fromComboBox.getValue().equals("Japanese Yen (JPY)") && toComboBox.getValue().equals("Swiss Franc (CHF)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 0.0086;
-                resultTextField.setText(String.format("%.2f", result));
+                resultTextField.setText(String.format("%.4f", result));
             }
             else if (fromComboBox.getValue().equals("Swiss Franc (CHF)") && toComboBox.getValue().equals("Japanese Yen (JPY)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 116.5643;
                 resultTextField.setText(String.format("%.2f", result));
+            }
+            else if (fromComboBox.getValue().equals("Swiss Franc (CHF)") && toComboBox.getValue().equals("Swiss Franc (CHF)")) {
+                result = Double.parseDouble(convertAmountTextField.getText()) * 1;
+                resultTextField.setText(String.valueOf(result));
+                errorMessage.setText("Twee dezelfde valuta kunnen niet met elkaar vergeleken worden");
             }
             // Japanese yen
             else if (fromComboBox.getValue().equals("Canadian Dollar (CAD)") && toComboBox.getValue().equals("Japanese Yen (JPY)")) {
@@ -159,10 +179,17 @@ public class HoofdpaginaController {
             }
             else if (fromComboBox.getValue().equals("Japanese Yen (JPY)") && toComboBox.getValue().equals("Canadian Dollar (CAD)")) {
                 result = Double.parseDouble(convertAmountTextField.getText()) * 0.0116;
-                resultTextField.setText(String.format("%.2f", result));
+                resultTextField.setText(String.format("%.4f", result));
+            }
+            else if (fromComboBox.getValue().equals("Japanese Yen (JPY)") && toComboBox.getValue().equals("Japanese Yen (JPY)")) {
+                result = Double.parseDouble(convertAmountTextField.getText()) * 1;
+                resultTextField.setText(String.valueOf(result));
+                errorMessage.setText("Twee dezelfde valuta kunnen niet met elkaar vergeleken worden");
             }
         } catch (Exception e) {
+            resultTextField.setText("");
             errorMessage.setText("Voer A.U.B. een geldige waarde in");
+            typeCurrency.setText("");
         }
 
         // Condities voor de typeCurrency label
